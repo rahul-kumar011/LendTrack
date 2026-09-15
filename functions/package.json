@@ -1,0 +1,21 @@
+{
+  "name": "lendtrack-functions",
+  "description": "LendTrack Firebase Cloud Functions for biometric login",
+  "main": "index.js",
+  "engines": {
+    "node": "22"
+  },
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "@simplewebauthn/server": "^14.0.0",
+    "firebase-admin": "latest",
+    "firebase-functions": "latest"
+  },
+  "private": true
+}

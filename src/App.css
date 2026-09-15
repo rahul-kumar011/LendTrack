@@ -1,0 +1,3814 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6fb;
+  color: #172033;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ================= AUTH ================= */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(
+    135deg,
+    #f5f3ff,
+    #eef2ff
+  );
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 430px;
+  background: white;
+  padding: 38px;
+  border-radius: 22px;
+  box-shadow: 0 20px 50px
+    rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ede9fe;
+  border-radius: 18px;
+  font-size: 30px;
+  margin-bottom: 18px;
+}
+
+.auth-card h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.auth-subtitle {
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #d9dce5;
+  border-radius: 10px;
+  outline: none;
+  background: white;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px
+    rgba(124, 58, 237, 0.1);
+}
+
+.primary-btn {
+  width: 100%;
+  border: none;
+  padding: 14px;
+  border-radius: 11px;
+  background: #7c3aed;
+  color: white;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.primary-btn:hover {
+  background: #6d28d9;
+}
+
+.primary-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-box {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 11px;
+  border-radius: 9px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 22px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.auth-switch button {
+  border: none;
+  background: none;
+  color: #7c3aed;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+/* ================= APP ================= */
+
+.app-page {
+  min-height: 100vh;
+}
+
+.top-header {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 20px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-header h1 {
+  margin: 0;
+  font-size: 25px;
+}
+
+.top-header p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.logout-btn {
+  border: 1px solid #ddd6fe;
+  background: #faf5ff;
+  color: #7c3aed;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.main-content {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 35px 0 60px;
+}
+
+.welcome h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.welcome p {
+  color: #6b7280;
+  margin-top: 6px;
+}
+
+/* ================= STATS ================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    1fr
+  );
+  gap: 18px;
+  margin: 30px 0 40px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 17px;
+  padding: 22px;
+  box-shadow: 0 8px 25px
+    rgba(0, 0, 0, 0.04);
+}
+
+.stat-card span {
+  display: block;
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 9px;
+}
+
+.stat-card strong {
+  font-size: 24px;
+}
+
+/* ================= CUSTOMER ================= */
+
+.people-header,
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.people-header h2,
+.section-heading h2,
+.section-heading h3 {
+  margin: 0;
+}
+
+.people-header p,
+.section-heading p {
+  margin: 5px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.add-person-btn,
+.add-loan-btn {
+  border: none;
+  background: #7c3aed;
+  color: white;
+  padding: 12px 17px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.add-person-btn:hover,
+.add-loan-btn:hover,
+.payment-btn:hover {
+  background: #6d28d9;
+}
+
+/* ================= SEARCH ================= */
+
+.search-box {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 13px;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 15px;
+  margin-bottom: 18px;
+  box-shadow: 0 5px 18px
+    rgba(0, 0, 0, 0.03);
+}
+
+.search-icon {
+  font-size: 18px;
+}
+
+.search-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  color: #172033;
+}
+
+.search-box input::placeholder {
+  color: #9ca3af;
+}
+
+.clear-search {
+  border: none;
+  background: #f3f4f6;
+  color: #6b7280;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= PEOPLE LIST ================= */
+
+.people-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.person-row {
+  background: white;
+  border-radius: 15px;
+  padding: 17px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: 0.2s;
+}
+
+.person-row:hover {
+  border-color: #ddd6fe;
+  transform: translateY(-1px);
+}
+
+.person-number,
+.loan-number {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 12px;
+  background: #ede9fe;
+  color: #7c3aed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.person-info {
+  flex: 1;
+}
+
+.person-info h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.person-info p {
+  margin: 5px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* ================= CUSTOMER RIGHT ================= */
+
+.person-right {
+  min-width: 185px;
+  text-align: right;
+}
+
+.person-outstanding span {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.person-outstanding strong {
+  display: block;
+  margin-top: 3px;
+}
+
+.person-interest-due {
+  margin-top: 5px;
+  color: #dc2626;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.person-no-interest {
+  margin-top: 5px;
+  color: #059669;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ================= BACK ================= */
+
+.back-btn {
+  border: none;
+  background: transparent;
+  color: #7c3aed;
+  font-weight: 700;
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+/* ================= PROFILE ================= */
+
+.customer-profile {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-bottom: 30px;
+}
+
+.avatar {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #ede9fe;
+  color: #7c3aed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.customer-profile h2 {
+  margin: 0;
+}
+
+.customer-profile p {
+  margin: 6px 0 0;
+  color: #6b7280;
+}
+
+/* ================= LOANS ================= */
+
+.loans-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.loan-card {
+  background: white;
+  padding: 20px;
+  border-radius: 17px;
+  display: flex;
+  gap: 17px;
+  cursor: pointer;
+  transition: 0.2s;
+  border: 1px solid transparent;
+}
+
+.loan-card:hover {
+  border-color: #ddd6fe;
+  transform: translateY(-1px);
+}
+
+.loan-card-content {
+  flex: 1;
+}
+
+.loan-card-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.loan-label {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.loan-card h3 {
+  margin: 5px 0 2px;
+  font-size: 24px;
+}
+
+.loan-card small {
+  color: #6b7280;
+}
+
+.loan-mini-stats {
+  display: flex;
+  gap: 35px;
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.loan-mini-stats span {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.loan-mini-stats strong {
+  display: block;
+  margin-top: 4px;
+}
+
+/* ================= LOAN DETAIL ================= */
+
+.loan-detail-title {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.loan-detail-title h2 {
+  margin: 0;
+}
+
+.loan-detail-title p {
+  margin: 6px 0 0;
+  color: #6b7280;
+}
+
+.payment-btn {
+  border: none;
+  background: #7c3aed;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+/* ================= SUMMARY ================= */
+
+.loan-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    1fr
+  );
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.summary-box {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  border-left: 4px solid #7c3aed;
+}
+
+.summary-box span {
+  display: block;
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.summary-box strong {
+  font-size: 22px;
+}
+
+.summary-box.original {
+  border-left-color: #6366f1;
+}
+
+.summary-box.paid {
+  border-left-color: #10b981;
+}
+
+.summary-box.present {
+  border-left-color: #f59e0b;
+}
+
+.summary-box.interest {
+  border-left-color: #ec4899;
+}
+
+/* ================= PRINCIPAL ================= */
+
+.principal-calculation {
+  background: white;
+  border-radius: 17px;
+  padding: 23px;
+  margin-bottom: 20px;
+  border: 1px solid #e9e5ff;
+}
+
+.principal-calculation h3 {
+  margin: 0 0 17px;
+}
+
+.calculation-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.calculation-row span {
+  color: #4b5563;
+}
+
+.calculation-row strong {
+  font-size: 16px;
+}
+
+.calculation-row.minus strong {
+  color: #dc2626;
+}
+
+.calculation-line {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 7px 0;
+}
+
+.calculation-row.final {
+  padding-top: 13px;
+}
+
+.calculation-row.final span,
+.calculation-row.final strong {
+  color: #7c3aed;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+/* ================= INTEREST SUMMARY ================= */
+
+.interest-summary-card {
+  background: white;
+  border-radius: 17px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid #fce7f3;
+}
+
+.interest-summary-header {
+  margin-bottom: 20px;
+}
+
+.interest-summary-header h3 {
+  margin: 0;
+}
+
+.interest-summary-header p {
+  margin: 5px 0 0;
+  color: #ec4899;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.interest-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    1fr
+  );
+  gap: 14px;
+}
+
+.interest-summary-grid > div {
+  background: #fff7fb;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.interest-summary-grid span,
+.interest-paid-till span {
+  display: block;
+  color: #6b7280;
+  font-size: 12px;
+  margin-bottom: 7px;
+}
+
+.interest-summary-grid strong {
+  font-size: 19px;
+}
+
+.remaining-interest {
+  color: #dc2626;
+}
+
+.interest-paid-till {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.interest-paid-till > div {
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 11px;
+}
+
+.interest-paid-till strong {
+  color: #7c3aed;
+}
+
+/* ================= MONTH WISE ================= */
+
+.month-interest-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.month-interest-row {
+  padding: 17px 0;
+  border-bottom: 1px solid #eeeeee;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.month-interest-row:last-child {
+  border-bottom: none;
+}
+
+.month-name {
+  min-width: 190px;
+  flex: 1;
+}
+
+.month-name strong {
+  display: block;
+}
+
+.month-name span {
+  display: block;
+  color: #6b7280;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.month-name small {
+  display: block;
+  color: #9ca3af;
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.month-interest-values {
+  display: flex;
+  gap: 28px;
+}
+
+.month-interest-values span {
+  display: block;
+  color: #6b7280;
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.month-interest-values strong {
+  font-size: 14px;
+}
+
+.green-text {
+  color: #059669;
+}
+
+.red-text {
+  color: #dc2626;
+}
+
+.paid-badge,
+.due-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.paid-badge {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.due-badge {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* ================= DETAIL CARD ================= */
+
+.detail-card {
+  background: white;
+  border-radius: 17px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.detail-card h3 {
+  margin-top: 0;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    1fr
+  );
+  gap: 20px;
+}
+
+.detail-grid span {
+  display: block;
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.detail-grid strong {
+  font-size: 16px;
+}
+
+.note-box {
+  margin-top: 20px;
+  background: #f8f7ff;
+  padding: 13px;
+  border-radius: 10px;
+  color: #4b5563;
+}
+
+/* ================= TRANSACTIONS ================= */
+
+.transaction-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.transaction-section {
+  border: 1px solid #eeeeee;
+  border-radius: 13px;
+  overflow: hidden;
+}
+
+.transaction-section-title {
+  padding: 15px 17px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.transaction-section-title h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.principal-title {
+  background: #f5f3ff;
+  color: #6d28d9;
+}
+
+.interest-title {
+  background: #fff1f7;
+  color: #be185d;
+}
+
+.transactions {
+  display: flex;
+  flex-direction: column;
+  padding: 0 17px;
+}
+
+.transaction-row {
+  padding: 15px 0;
+  border-bottom: 1px solid #eeeeee;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.transaction-row:last-child {
+  border-bottom: none;
+}
+
+.transaction-row strong {
+  display: block;
+}
+
+.transaction-row span,
+.transaction-row small {
+  display: block;
+  color: #6b7280;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.amount-given {
+  color: #7c3aed;
+}
+
+.amount-received {
+  color: #059669;
+}
+
+/* ================= INTEREST ALLOCATION ================= */
+
+.interest-payment-row {
+  align-items: flex-start;
+}
+
+.interest-adjustment {
+  margin-top: 8px;
+  padding: 9px 10px;
+  background: #fff7fb;
+  border-radius: 8px;
+  border-left: 3px solid #ec4899;
+}
+
+.interest-adjustment > span {
+  display: block;
+  color: #be185d;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.interest-adjustment small {
+  display: block;
+  color: #6b7280;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.unallocated-text {
+  color: #dc2626 !important;
+  font-weight: 600;
+}
+
+/* ================= PAYMENT ================= */
+
+.payment-total {
+  background: #f5f3ff;
+  color: #6d28d9;
+  padding: 13px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.present-principal-preview {
+  background: #fff7ed;
+  color: #9a3412;
+  padding: 13px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+.present-interest-preview {
+  background: #fff1f7;
+  color: #be185d;
+  padding: 13px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+/* ================= EMPTY ================= */
+
+.empty-state {
+  background: white;
+  padding: 55px 20px;
+  text-align: center;
+  border-radius: 17px;
+}
+
+.empty-state > div {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.empty-state h3 {
+  margin: 0;
+}
+
+.empty-state p {
+  color: #6b7280;
+}
+
+.empty-small {
+  color: #6b7280;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ================= MODAL ================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(
+    17,
+    24,
+    39,
+    0.5
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 100;
+}
+
+.modal {
+  background: white;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 25px 70px
+    rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.modal-header h2 {
+  margin: 0;
+}
+
+.modal-header button {
+  width: 35px;
+  height: 35px;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 9px;
+  font-size: 23px;
+}
+
+.form-section-title {
+  font-weight: 800;
+  color: #7c3aed;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+  margin: 22px 0 18px;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    );
+  }
+
+  .loan-summary-grid {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    );
+  }
+
+  .detail-grid {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    );
+  }
+
+  .interest-summary-grid {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    );
+  }
+
+  .transaction-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .top-header {
+    padding: 17px 5%;
+  }
+
+  .main-content {
+    width: 92%;
+    padding-top: 25px;
+  }
+
+  .top-header h1 {
+    font-size: 21px;
+  }
+
+  .top-header p {
+    font-size: 12px;
+  }
+
+  .logout-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .welcome h2 {
+    font-size: 23px;
+  }
+
+  .stats-grid {
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 16px;
+  }
+
+  .stat-card strong {
+    font-size: 19px;
+  }
+
+  .people-header,
+  .section-heading {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .add-person-btn,
+  .add-loan-btn {
+    padding: 10px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .search-box {
+    min-height: 48px;
+  }
+
+  .search-box input {
+    font-size: 14px;
+  }
+
+  .person-row {
+    padding: 14px;
+  }
+
+  .person-right {
+    min-width: 125px;
+  }
+
+  .person-outstanding span {
+    font-size: 10px;
+  }
+
+  .person-outstanding strong {
+    font-size: 13px;
+  }
+
+  .person-interest-due,
+  .person-no-interest {
+    font-size: 10px;
+  }
+
+  .person-info h3 {
+    font-size: 15px;
+  }
+
+  .person-info p {
+    font-size: 11px;
+  }
+
+  .customer-profile {
+    padding: 20px;
+  }
+
+  .loan-card {
+    padding: 15px;
+  }
+
+  .loan-mini-stats {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .loan-detail-title {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .payment-btn {
+    width: 100%;
+  }
+
+  .loan-summary-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .summary-box {
+    padding: 15px;
+  }
+
+  .summary-box strong {
+    font-size: 18px;
+  }
+
+  .detail-card {
+    padding: 18px;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .interest-summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .interest-paid-till {
+    grid-template-columns: 1fr;
+  }
+
+  .month-interest-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  .month-name {
+    min-width: auto;
+  }
+
+  .month-interest-values {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .transaction-row {
+    gap: 10px;
+  }
+
+  .transaction-row > strong {
+    white-space: nowrap;
+  }
+
+  .modal {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .loan-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .interest-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .person-right {
+    min-width: 105px;
+  }
+
+  .person-interest-due,
+  .person-no-interest {
+    font-size: 9px;
+  }
+}
+
+/* ================= EDIT / DELETE ACTIONS ================= */
+
+.customer-profile {
+  position: relative;
+}
+
+.customer-profile-info {
+  flex: 1;
+}
+
+.customer-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-left: auto;
+}
+
+.edit-btn,
+.delete-btn {
+  border-radius: 10px;
+  padding: 9px 13px;
+  font-weight: 700;
+  background: white;
+}
+
+.edit-btn {
+  border: 1px solid #ddd6fe;
+  color: #7c3aed;
+}
+
+.edit-btn:hover {
+  background: #faf5ff;
+}
+
+.delete-btn {
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+.delete-btn:hover {
+  background: #fff1f2;
+}
+
+.loan-detail-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.loan-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.small-edit-btn,
+.small-delete-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: white;
+  font-size: 14px;
+}
+
+.small-edit-btn {
+  border: 1px solid #ddd6fe;
+}
+
+.small-delete-btn {
+  border: 1px solid #fecaca;
+}
+
+.small-edit-btn:hover {
+  background: #faf5ff;
+}
+
+.small-delete-btn:hover {
+  background: #fff1f2;
+}
+
+.transaction-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.transaction-edit-btn,
+.transaction-delete-btn {
+  width: 29px;
+  height: 29px;
+  border-radius: 7px;
+  background: white;
+  font-size: 12px;
+  padding: 0;
+}
+
+.transaction-edit-btn {
+  border: 1px solid #ddd6fe;
+}
+
+.transaction-delete-btn {
+  border: 1px solid #fecaca;
+}
+
+.transaction-edit-btn:hover {
+  background: #faf5ff;
+}
+
+.transaction-delete-btn:hover {
+  background: #fff1f2;
+}
+
+.edit-warning {
+  background: #fff7ed;
+  color: #9a3412;
+  padding: 11px 12px;
+  border-radius: 9px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Keep the existing clean layout on smaller screens. */
+@media (max-width: 650px) {
+  .customer-profile {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .customer-profile-info {
+    min-width: 0;
+  }
+
+  .customer-actions {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 79px;
+  }
+
+  .loan-detail-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .loan-detail-actions .payment-btn {
+    width: 100%;
+  }
+
+  .loan-card-actions {
+    gap: 4px;
+  }
+
+  .small-edit-btn,
+  .small-delete-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .transaction-actions {
+    gap: 4px;
+  }
+}
+
+
+/* ================= DASHBOARD HEADER ACTIONS ================= */
+
+.people-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.deleted-toggle-btn {
+  border: 1px solid #e9d5ff;
+  background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+  color: #7c3aed;
+  padding: 11px 15px;
+  border-radius: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: 0.2s;
+}
+
+.deleted-toggle-btn:hover {
+  background: linear-gradient(135deg, #f3e8ff, #ede9fe);
+  transform: translateY(-1px);
+}
+
+.deleted-count {
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #7c3aed;
+  color: white;
+  font-size: 11px;
+}
+
+/* ================= RED LOGOUT ================= */
+
+.logout-btn {
+  border-color: #fecaca;
+  background: #fff1f2;
+  color: #dc2626;
+  transition: 0.2s;
+}
+
+.logout-btn:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #b91c1c;
+  transform: translateY(-1px);
+}
+
+/* ================= RECENTLY DELETED PAGE ================= */
+
+.recently-deleted-page {
+  padding-top: 30px;
+}
+
+.deleted-page-hero {
+  background: linear-gradient(135deg, #fff7ed 0%, #fff1f2 48%, #faf5ff 100%);
+  border: 1px solid #fed7aa;
+  border-radius: 22px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 22px;
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.06);
+}
+
+.deleted-hero-icon {
+  width: 62px;
+  height: 62px;
+  min-width: 62px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  background: white;
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.06);
+}
+
+.deleted-hero-text {
+  flex: 1;
+}
+
+.deleted-hero-text h2 {
+  margin: 0;
+  font-size: 27px;
+}
+
+.deleted-hero-text p {
+  margin: 6px 0 0;
+  color: #6b7280;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.deleted-total-pill {
+  background: white;
+  color: #7c3aed;
+  border: 1px solid #ddd6fe;
+  border-radius: 30px;
+  padding: 9px 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.deleted-page-list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.deleted-item-card {
+  background: white;
+  border-radius: 17px;
+  padding: 18px 20px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 7px 22px rgba(0, 0, 0, 0.035);
+  transition: 0.2s;
+}
+
+.deleted-item-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+.deleted-person {
+  border-left: 5px solid #8b5cf6;
+}
+
+.deleted-loan {
+  border-left: 5px solid #f59e0b;
+}
+
+.deleted-payment {
+  border-left: 5px solid #ec4899;
+}
+
+.deleted-item-main {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.deleted-item-icon {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+}
+
+.deleted-person .deleted-item-icon {
+  background: #ede9fe;
+}
+
+.deleted-loan .deleted-item-icon {
+  background: #fef3c7;
+}
+
+.deleted-payment .deleted-item-icon {
+  background: #fce7f3;
+}
+
+.deleted-item-info {
+  min-width: 0;
+}
+
+.deleted-item-top {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.deleted-type-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.deleted-person .deleted-type-badge {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.deleted-loan .deleted-type-badge {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.deleted-payment .deleted-type-badge {
+  background: #fce7f3;
+  color: #be185d;
+}
+
+.deleted-date {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.deleted-item-info h3 {
+  margin: 6px 0 3px;
+  font-size: 17px;
+}
+
+.deleted-item-info p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 13px;
+}
+
+.deleted-item-info small {
+  display: inline-block;
+  margin-top: 5px;
+  margin-right: 12px;
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.deleted-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.restore-btn,
+.permanent-delete-btn {
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-weight: 700;
+  font-size: 12px;
+  transition: 0.2s;
+}
+
+.restore-btn {
+  border: 1px solid #bbf7d0;
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.restore-btn:hover {
+  background: #dcfce7;
+  border-color: #86efac;
+}
+
+.permanent-delete-btn {
+  border: 1px solid #fecaca;
+  background: #fff1f2;
+  color: #dc2626;
+}
+
+.permanent-delete-btn:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.deleted-empty-card {
+  background: white;
+  border: 1px dashed #d8b4fe;
+  border-radius: 20px;
+  padding: 65px 25px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03);
+}
+
+.deleted-empty-icon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 15px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f3ff;
+  font-size: 30px;
+}
+
+.deleted-empty-card h3 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.deleted-empty-card p {
+  color: #6b7280;
+  margin: 7px 0 0;
+}
+
+/* Old inline deleted styles are kept compatible if referenced elsewhere. */
+.recently-deleted-card,
+.deleted-list,
+.deleted-row {
+  box-sizing: border-box;
+}
+
+/* ================= RECENTLY DELETED MOBILE ================= */
+
+@media (max-width: 800px) {
+  .people-header-actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .deleted-page-hero {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .deleted-hero-text {
+    min-width: 200px;
+  }
+
+  .deleted-total-pill {
+    margin-left: 80px;
+  }
+
+  .deleted-item-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .deleted-item-actions {
+    width: 100%;
+    padding-left: 65px;
+  }
+
+  .deleted-item-actions button {
+    flex: 1;
+  }
+}
+
+@media (max-width: 650px) {
+  .people-header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .deleted-toggle-btn,
+  .add-person-btn {
+    flex: 1;
+  }
+
+  .deleted-page-hero {
+    padding: 20px;
+  }
+
+  .deleted-hero-text h2 {
+    font-size: 23px;
+  }
+
+  .deleted-total-pill {
+    margin-left: 0;
+  }
+
+  .deleted-item-card {
+    padding: 15px;
+  }
+
+  .deleted-item-main {
+    align-items: flex-start;
+  }
+
+  .deleted-item-actions {
+    padding-left: 0;
+    flex-direction: column;
+  }
+
+  .deleted-item-actions button {
+    width: 100%;
+  }
+}
+
+
+/* ================= DASHBOARD BALANCE PRIVACY ================= */
+.balance-toggle-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -24px;
+  margin-bottom: 28px;
+}
+
+.balance-toggle-btn {
+  border: 1px solid #ddd6fe;
+  background: #ffffff;
+  color: #7c3aed;
+  padding: 8px 14px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.balance-toggle-btn:hover {
+  background: #f5f3ff;
+  transform: translateY(-1px);
+}
+
+.balance-toggle-btn.balance-visible {
+  background: #f5f3ff;
+  border-color: #c4b5fd;
+}
+
+.stat-card strong {
+  min-height: 29px;
+  display: block;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 700px) {
+  .balance-toggle-wrap {
+    margin-top: -20px;
+    margin-bottom: 24px;
+  }
+
+  .balance-toggle-btn {
+    width: 100%;
+    padding: 10px 14px;
+  }
+}
+
+
+/* =========================================================
+   CUSTOMER STATEMENT / PDF EXPORT
+========================================================= */
+
+.statement-btn,
+.pdf-export-btn {
+  border-radius: 10px;
+  padding: 9px 13px;
+  font-weight: 700;
+  background: white;
+  cursor: pointer;
+}
+
+.statement-btn {
+  border: 1px solid #c7d2fe;
+  color: #4338ca;
+}
+
+.statement-btn:hover {
+  background: #eef2ff;
+}
+
+.pdf-export-btn {
+  border: 1px solid #bbf7d0;
+  color: #047857;
+}
+
+.pdf-export-btn:hover {
+  background: #ecfdf5;
+}
+
+.statement-btn:disabled,
+.pdf-export-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.statement-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.statement-print-btn {
+  border: 1px solid #bbf7d0;
+  background: #ecfdf5;
+  color: #047857;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.statement-print-btn:hover {
+  background: #d1fae5;
+}
+
+.statement-content {
+  max-width: 1000px;
+}
+
+.statement-paper {
+  background: white;
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+}
+
+.statement-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding-bottom: 22px;
+  border-bottom: 2px solid #ede9fe;
+}
+
+.statement-title-row h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.statement-title-row p {
+  margin: 6px 0 0;
+  color: #6b7280;
+}
+
+.statement-date {
+  color: #6b7280;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.statement-customer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 22px 0;
+}
+
+.statement-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #ede9fe;
+  color: #7c3aed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.statement-customer h3 {
+  margin: 0;
+  font-size: 21px;
+}
+
+.statement-customer p {
+  margin: 5px 0 0;
+  color: #6b7280;
+}
+
+.statement-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.statement-summary-grid > div {
+  background: #f8f7ff;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.statement-summary-grid span,
+.statement-loan-grid span {
+  display: block;
+  color: #6b7280;
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+
+.statement-summary-grid strong {
+  font-size: 17px;
+}
+
+.statement-section {
+  margin-top: 28px;
+}
+
+.statement-section > h3 {
+  margin: 0 0 15px;
+  font-size: 19px;
+}
+
+.statement-loan-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.statement-loan-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.statement-loan-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding-bottom: 13px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.statement-loan-heading strong:first-child {
+  display: block;
+  color: #6d28d9;
+}
+
+.statement-loan-heading span {
+  display: block;
+  color: #6b7280;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.statement-loan-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.statement-loan-grid > div {
+  background: #fafafa;
+  padding: 12px;
+  border-radius: 9px;
+}
+
+.statement-loan-grid strong {
+  font-size: 14px;
+}
+
+.statement-note {
+  margin-top: 14px;
+  padding: 11px 12px;
+  border-radius: 9px;
+  background: #f8f7ff;
+  color: #4b5563;
+  font-size: 13px;
+}
+
+.statement-transactions-block {
+  margin-bottom: 22px;
+}
+
+.statement-transactions-block h4 {
+  margin: 0 0 10px;
+  color: #6d28d9;
+}
+
+.statement-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 11px;
+}
+
+.statement-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 650px;
+}
+
+.statement-table th,
+.statement-table td {
+  padding: 11px 12px;
+  text-align: left;
+  border-bottom: 1px solid #eeeeee;
+  font-size: 12px;
+}
+
+.statement-table th {
+  background: #f8f7ff;
+  color: #4b5563;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.statement-table tr:last-child td {
+  border-bottom: none;
+}
+
+.amount-column {
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+.statement-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #e5e7eb;
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.statement-footer strong {
+  color: #7c3aed;
+}
+
+/* ================= STATEMENT MOBILE ================= */
+
+@media (max-width: 900px) {
+  .statement-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statement-loan-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .statement-paper {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .statement-title-row {
+    flex-direction: column;
+  }
+
+  .statement-date {
+    white-space: normal;
+  }
+
+  .statement-header-actions {
+    flex-wrap: wrap;
+  }
+
+  .statement-summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .statement-loan-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .statement-footer {
+    flex-direction: column;
+  }
+
+  .customer-actions {
+    padding-left: 0;
+  }
+}
+
+/* ================= PRINT / SAVE AS PDF ================= */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  body {
+    background: white !important;
+  }
+
+  .statement-no-print {
+    display: none !important;
+  }
+
+  .statement-page {
+    min-height: auto;
+  }
+
+  .statement-content {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .statement-paper {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+  }
+
+  .statement-loan-card,
+  .statement-table-wrap {
+    break-inside: avoid;
+  }
+
+  .statement-section {
+    break-inside: auto;
+  }
+
+  .statement-table {
+    min-width: 0;
+  }
+}
+
+/* ================= HEADER ACTIONS ================= */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.profile-icon-btn {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd6fe;
+  background: #faf5ff;
+  color: #7c3aed;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.profile-icon-btn:hover,
+.profile-icon-btn.active {
+  background: #ede9fe;
+  border-color: #c4b5fd;
+}
+
+/* ================= USER PROFILE PAGE ================= */
+
+.profile-page {
+  max-width: 900px;
+}
+
+.profile-hero {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.profile-large-avatar {
+  width: 68px;
+  height: 68px;
+  min-width: 68px;
+  border-radius: 50%;
+  background: #ede9fe;
+  color: #7c3aed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.profile-hero h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.profile-hero p {
+  margin: 6px 0 0;
+  color: #6b7280;
+}
+
+.profile-section-card {
+  background: white;
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.035);
+  border: 1px solid #eeeef5;
+}
+
+.profile-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 20px;
+}
+
+.profile-section-icon {
+  width: 43px;
+  height: 43px;
+  min-width: 43px;
+  border-radius: 12px;
+  background: #f3efff;
+  color: #7c3aed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-section-heading h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.profile-section-heading p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.profile-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.profile-form-grid .input-group:last-child {
+  grid-column: 1 / -1;
+}
+
+.profile-form .input-group {
+  margin-bottom: 0;
+}
+
+.profile-form input[readonly] {
+  background: #f8f8fb;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.profile-save-btn {
+  margin-top: 18px;
+  border: none;
+  background: #7c3aed;
+  color: white;
+  padding: 11px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.profile-save-btn:hover {
+  background: #6d28d9;
+}
+
+.profile-save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.profile-message {
+  margin-top: 15px;
+  padding: 11px 13px;
+  border-radius: 9px;
+  font-size: 13px;
+}
+
+.profile-message.success {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.profile-message.error {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.profile-action-btn {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #172033;
+  font-weight: 700;
+  text-align: left;
+}
+
+.profile-action-btn:hover {
+  border-color: #c4b5fd;
+  background: #faf5ff;
+}
+
+.profile-action-btn span {
+  color: #7c3aed;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.profile-settings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 15px;
+  background: #fafafa;
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+}
+
+.profile-setting-row strong,
+.profile-setting-row span {
+  display: block;
+}
+
+.profile-setting-row span {
+  margin-top: 4px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.profile-setting-row select {
+  min-width: 120px;
+  padding: 9px 11px;
+  border: 1px solid #d9dce5;
+  border-radius: 9px;
+  background: white;
+  outline: none;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-content > div {
+  padding: 15px;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+.about-content strong {
+  color: #6d28d9;
+}
+
+.about-content p {
+  margin: 7px 0 0;
+  color: #4b5563;
+  line-height: 1.6;
+  font-size: 13px;
+}
+
+.profile-password-modal {
+  max-width: 450px;
+}
+
+/* ================= DARK THEME ================= */
+
+.dark-theme {
+  background: #111827;
+  color: #f3f4f6;
+}
+
+.dark-theme .top-header,
+.dark-theme .profile-hero,
+.dark-theme .profile-section-card,
+.dark-theme .stat-card,
+.dark-theme .person-row,
+.dark-theme .loan-card,
+.dark-theme .loan-detail-title,
+.dark-theme .principal-calculation,
+.dark-theme .interest-summary-card,
+.dark-theme .detail-card,
+.dark-theme .empty-state,
+.dark-theme .deleted-page-hero,
+.dark-theme .deleted-empty-card,
+.dark-theme .deleted-item-card {
+  background: #1f2937;
+  color: #f3f4f6;
+  border-color: #374151;
+}
+
+.dark-theme .top-header {
+  border-bottom-color: #374151;
+}
+
+.dark-theme .top-header p,
+.dark-theme .profile-hero p,
+.dark-theme .profile-section-heading p,
+.dark-theme .profile-setting-row span,
+.dark-theme .about-content p,
+.dark-theme .person-info p,
+.dark-theme .person-outstanding span,
+.dark-theme .loan-label,
+.dark-theme .loan-card small,
+.dark-theme .detail-grid span,
+.dark-theme .calculation-row span,
+.dark-theme .interest-summary-grid span,
+.dark-theme .interest-paid-till span {
+  color: #9ca3af;
+}
+
+.dark-theme .profile-large-avatar,
+.dark-theme .profile-section-icon {
+  background: #312e81;
+  color: #ddd6fe;
+}
+
+.dark-theme .profile-action-btn,
+.dark-theme .profile-setting-row,
+.dark-theme .about-content > div {
+  background: #111827;
+  color: #f3f4f6;
+  border-color: #374151;
+}
+
+.dark-theme .profile-action-btn:hover {
+  background: #312e81;
+}
+
+.dark-theme .profile-setting-row select,
+.dark-theme .profile-form input[readonly] {
+  background: #111827;
+  color: #f3f4f6;
+  border-color: #4b5563;
+}
+
+.dark-theme .profile-icon-btn {
+  background: #312e81;
+  border-color: #4c1d95;
+  color: #ddd6fe;
+}
+
+.dark-theme .search-box,
+.dark-theme .transaction-section,
+.dark-theme .payment-total,
+.dark-theme .present-principal-preview,
+.dark-theme .present-interest-preview {
+  background: #1f2937;
+  color: #f3f4f6;
+  border-color: #374151;
+}
+
+.dark-theme .search-box input {
+  color: #f3f4f6;
+}
+
+.dark-theme .input-group input,
+.dark-theme .input-group select {
+  background: #111827;
+  color: #f3f4f6;
+  border-color: #4b5563;
+}
+
+@media (max-width: 650px) {
+  .header-actions {
+    gap: 6px;
+  }
+
+  .profile-icon-btn {
+    width: 39px;
+    height: 39px;
+  }
+
+  .profile-hero {
+    padding: 20px;
+  }
+
+  .profile-section-card {
+    padding: 19px;
+  }
+
+  .profile-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-form-grid .input-group:last-child {
+    grid-column: auto;
+  }
+
+  .profile-setting-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .profile-setting-row select {
+    width: 100%;
+  }
+}
+
+
+/* ================= CUSTOMER ADDRESS ================= */
+.address-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 82px;
+  padding: 13px 14px;
+  border: 1px solid #d9dce5;
+  border-radius: 12px;
+  outline: none;
+  background: #fff;
+  color: #172033;
+  line-height: 1.5;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+.address-textarea:focus { border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,.1); }
+.person-address-preview { display:block; margin-top:5px; color:#7c3aed; font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:100%; }
+.customer-address { color:#6d28d9 !important; font-size:13px; line-height:1.45; max-width:560px; }
+@media (max-width:650px) { .person-address-preview { max-width:190px; } .customer-address { font-size:12px; } }
+body.dark-theme .address-textarea { background:#0f172a; color:#f3f4f6; border-color:#334155; }
+body.dark-theme .person-address-preview, body.dark-theme .customer-address { color:#a78bfa !important; }
+
+/* =========================================================
+   FINAL PROFESSIONAL HEADER - LendTrack
+   ========================================================= */
+.top-header {
+  position: relative;
+  overflow: hidden;
+  padding: 18px 6%;
+  min-height: 78px;
+  background: linear-gradient(135deg, #ffffff 0%, #faf7ff 52%, #f3efff 100%);
+  border-bottom: 1px solid #e8e0ff;
+  box-shadow: 0 5px 20px rgba(76, 29, 149, 0.07);
+}
+
+.top-header::before {
+  content: "";
+  position: absolute;
+  top: -70px;
+  right: 8%;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: rgba(124, 58, 237, 0.08);
+  pointer-events: none;
+}
+
+.top-header::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: 38%;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.05);
+  pointer-events: none;
+}
+
+.top-header > div:first-child,
+.top-header .header-actions {
+  position: relative;
+  z-index: 1;
+}
+
+.top-header h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, #4c1d95, #7c3aed, #6366f1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.top-header p {
+  margin: 5px 0 0;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.header-actions {
+  gap: 10px;
+}
+
+.profile-icon-btn {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #ddd6fe;
+  background: rgba(255, 255, 255, 0.88);
+  color: #6d28d9;
+  border-radius: 13px;
+  box-shadow: 0 4px 12px rgba(76, 29, 149, 0.08);
+  transition: all 0.2s ease;
+}
+
+.profile-icon-btn:hover,
+.profile-icon-btn.active {
+  transform: translateY(-1px);
+  background: #ede9fe;
+  border-color: #c4b5fd;
+  box-shadow: 0 7px 16px rgba(124, 58, 237, 0.15);
+}
+
+.logout-btn {
+  border: 1px solid #fecaca;
+  background: linear-gradient(135deg, #fff7f7, #fff1f2);
+  color: #dc2626;
+  padding: 11px 20px;
+  border-radius: 13px;
+  font-weight: 750;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.06);
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #fee2e2, #ffe4e6);
+  border-color: #fca5a5;
+  box-shadow: 0 7px 16px rgba(220, 38, 38, 0.12);
+}
+
+/* Dark theme header */
+.dark-theme .top-header {
+  background: linear-gradient(135deg, #111827 0%, #18152b 55%, #1e1b3a 100%);
+  border-bottom-color: #312e5a;
+  box-shadow: 0 5px 22px rgba(0, 0, 0, 0.22);
+}
+
+.dark-theme .top-header::before {
+  background: rgba(139, 92, 246, 0.10);
+}
+
+.dark-theme .top-header::after {
+  background: rgba(99, 102, 241, 0.07);
+}
+
+.dark-theme .top-header p {
+  color: #a5b4fc;
+}
+
+.dark-theme .profile-icon-btn {
+  background: rgba(31, 41, 55, 0.88);
+  border-color: #4c1d95;
+  color: #c4b5fd;
+}
+
+.dark-theme .profile-icon-btn:hover,
+.dark-theme .profile-icon-btn.active {
+  background: #312e81;
+  border-color: #6366f1;
+}
+
+.dark-theme .logout-btn {
+  background: rgba(127, 29, 29, 0.22);
+  border-color: #7f1d1d;
+  color: #fca5a5;
+}
+
+.dark-theme .logout-btn:hover {
+  background: rgba(153, 27, 27, 0.35);
+  border-color: #b91c1c;
+}
+
+@media (max-width: 650px) {
+  .top-header {
+    padding: 14px 5%;
+    min-height: 68px;
+  }
+
+  .top-header h1 {
+    font-size: 21px;
+  }
+
+  .top-header p {
+    font-size: 11px;
+  }
+
+  .profile-icon-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logout-btn {
+    padding: 9px 13px;
+    border-radius: 11px;
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   PREMIUM FINANCE THEME - FINAL POLISH
+   ========================================================= */
+:root {
+  --lt-primary: #6d3df5;
+  --lt-primary-dark: #4f22c7;
+  --lt-indigo: #4338ca;
+  --lt-navy: #172554;
+  --lt-bg: #f4f5ff;
+  --lt-card: rgba(255,255,255,0.94);
+  --lt-border: #e4e1ff;
+  --lt-shadow: 0 12px 32px rgba(67,56,202,0.09);
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 5%, rgba(124,58,237,.10), transparent 24%),
+    radial-gradient(circle at 92% 12%, rgba(79,70,229,.08), transparent 23%),
+    linear-gradient(180deg, #f7f7ff 0%, #f2f4fb 55%, #eef1f9 100%);
+}
+
+/* Premium top header */
+.top-header {
+  position: relative;
+  overflow: hidden;
+  min-height: 92px;
+  padding: 18px 6%;
+  border: 0;
+  background: linear-gradient(115deg, #21124d 0%, #4520a5 48%, #7042e8 100%);
+  box-shadow: 0 10px 30px rgba(52, 25, 130, .22);
+  color: white;
+  isolation: isolate;
+}
+
+.top-header::before,
+.top-header::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.top-header::before {
+  width: 230px;
+  height: 230px;
+  right: 7%;
+  top: -145px;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.top-header::after {
+  width: 150px;
+  height: 150px;
+  left: 38%;
+  bottom: -115px;
+  background: rgba(255,255,255,.07);
+}
+
+.top-header h1 {
+  position: relative;
+  color: #fff;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -.5px;
+  text-shadow: 0 2px 12px rgba(0,0,0,.16);
+}
+
+.top-header p {
+  color: rgba(255,255,255,.78);
+  font-size: 14px;
+}
+
+.header-actions {
+  position: relative;
+  z-index: 2;
+  gap: 10px;
+}
+
+.profile-icon-btn {
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255,255,255,.30);
+  background: rgba(255,255,255,.14);
+  color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.profile-icon-btn:hover,
+.profile-icon-btn.active {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.24);
+  border-color: rgba(255,255,255,.50);
+  color: #fff;
+}
+
+.logout-btn {
+  min-height: 46px;
+  border: 1px solid rgba(255,255,255,.35);
+  background: rgba(255,255,255,.96);
+  color: #c02626;
+  padding: 10px 20px;
+  border-radius: 14px;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  box-shadow: 0 12px 25px rgba(0,0,0,.16);
+}
+
+/* Main dashboard surface */
+.app-page {
+  background: transparent;
+}
+
+.main-content {
+  position: relative;
+}
+
+.welcome h2 {
+  color: #14213d;
+  letter-spacing: -.5px;
+}
+
+.welcome p {
+  color: #65708a;
+}
+
+/* Stats get a subtle finance-card treatment */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(124,58,237,.09);
+  background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(248,247,255,.94));
+  box-shadow: var(--lt-shadow);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #5b21b6, #7c3aed, #8b5cf6);
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(67,56,202,.13);
+}
+
+.stat-card span {
+  color: #64708a;
+}
+
+.stat-card strong {
+  color: #172554;
+}
+
+/* Section headings */
+.people-header h2,
+.section-heading h2,
+.section-heading h3 {
+  color: #17213d;
+}
+
+.add-person-btn,
+.add-loan-btn,
+.payment-btn,
+.primary-btn {
+  background: linear-gradient(135deg, #6d28d9, #7c3aed 55%, #8b5cf6);
+  box-shadow: 0 8px 18px rgba(109,40,217,.22);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.add-person-btn:hover,
+.add-loan-btn:hover,
+.payment-btn:hover,
+.primary-btn:hover {
+  background: linear-gradient(135deg, #5b21b6, #6d28d9 55%, #7c3aed);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(109,40,217,.28);
+}
+
+/* Search bar */
+.search-box {
+  border: 1px solid #e1def7;
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 8px 25px rgba(67,56,202,.07);
+}
+
+.search-box:focus-within {
+  border-color: #9b7cf7;
+  box-shadow: 0 0 0 4px rgba(124,58,237,.09), 0 10px 28px rgba(67,56,202,.09);
+}
+
+/* Customer cards */
+.person-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e9e7f5;
+  background: rgba(255,255,255,.97);
+  box-shadow: 0 8px 24px rgba(44,35,92,.055);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.person-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 4px;
+  border-radius: 0 8px 8px 0;
+  background: linear-gradient(180deg, #6d28d9, #8b5cf6);
+}
+
+.person-card:hover {
+  transform: translateY(-3px);
+  border-color: #d9d0ff;
+  box-shadow: 0 14px 32px rgba(67,56,202,.12);
+}
+
+.person-number {
+  background: linear-gradient(145deg, #ede9fe, #e0d7ff) !important;
+  color: #6733db !important;
+  box-shadow: inset 0 0 0 1px rgba(124,58,237,.08);
+}
+
+/* Profile page */
+.profile-page {
+  position: relative;
+}
+
+.profile-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #25124f 0%, #5126b5 52%, #7447e8 100%);
+  border: 0;
+  color: white;
+  box-shadow: 0 16px 34px rgba(67,56,202,.20);
+}
+
+.profile-hero::after {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  right: -65px;
+  top: -90px;
+  background: rgba(255,255,255,.10);
+}
+
+.profile-large-avatar {
+  position: relative;
+  z-index: 1;
+  background: rgba(255,255,255,.18);
+  color: white;
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 8px 20px rgba(0,0,0,.12);
+}
+
+.profile-hero h2,
+.profile-hero p {
+  position: relative;
+  z-index: 1;
+}
+
+.profile-hero p {
+  color: rgba(255,255,255,.78);
+}
+
+.profile-section-card {
+  border: 1px solid #e6e2fa;
+  background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(248,247,255,.95));
+  box-shadow: 0 12px 30px rgba(67,56,202,.075);
+}
+
+.profile-section-heading {
+  color: #172554;
+}
+
+.profile-section-heading svg,
+.profile-section-heading .icon,
+.profile-section-icon {
+  background: linear-gradient(145deg, #ede9fe, #ddd2ff) !important;
+  color: #6d28d9 !important;
+}
+
+/* Customer detail / statement cards */
+.customer-profile,
+.loan-card,
+.statement-paper,
+.statement-loan-card {
+  border-color: #e5e1f7;
+  box-shadow: 0 10px 28px rgba(67,56,202,.07);
+}
+
+/* Mobile polish */
+@media (max-width: 650px) {
+  .top-header {
+    min-height: 82px;
+    padding: 14px 5%;
+  }
+
+  .top-header h1 {
+    font-size: 22px;
+  }
+
+  .top-header p {
+    font-size: 12px;
+  }
+
+  .profile-icon-btn,
+  .logout-btn {
+    min-height: 42px;
+    height: 42px;
+  }
+
+  .profile-icon-btn {
+    width: 42px;
+  }
+
+  .logout-btn {
+    padding: 8px 13px;
+    border-radius: 12px;
+  }
+}
+
+/* Dark mode premium treatment */
+body.dark-theme {
+  background:
+    radial-gradient(circle at 8% 5%, rgba(124,58,237,.16), transparent 24%),
+    radial-gradient(circle at 92% 12%, rgba(79,70,229,.12), transparent 23%),
+    linear-gradient(180deg, #0d1020 0%, #11152a 100%);
+}
+
+body.dark-theme .top-header {
+  background: linear-gradient(115deg, #160d35 0%, #321576 50%, #4c2a9e 100%);
+}
+
+body.dark-theme .stat-card,
+body.dark-theme .person-card,
+body.dark-theme .profile-section-card,
+body.dark-theme .search-box,
+body.dark-theme .customer-profile,
+body.dark-theme .loan-card {
+  background: linear-gradient(145deg, #171b30, #13172a);
+  border-color: #292d49;
+  box-shadow: 0 12px 30px rgba(0,0,0,.20);
+}
+
+
+/* =========================================================
+   PROFESSIONAL SECTION BORDERS - COLOR CODED
+   Thin borders for every major section/card.
+   Colors are intentionally soft so the UI stays premium.
+   ========================================================= */
+:root {
+  --sec-purple: #8b5cf6;
+  --sec-blue: #3b82f6;
+  --sec-teal: #0f9f9a;
+  --sec-green: #16a34a;
+  --sec-amber: #d97706;
+  --sec-rose: #e11d48;
+  --sec-slate: #64748b;
+}
+
+/* Common premium section treatment */
+.detail-card,
+.customer-profile,
+.loan-card,
+.interest-summary-card,
+.transaction-section,
+.principal-calculation,
+.note-box,
+.month-interest-list,
+.statement-section,
+.statement-loan-card,
+.statement-transactions-block,
+.profile-section-card,
+.about-content,
+.deleted-item-main,
+.deleted-empty-card,
+.form-section-title,
+.profile-setting-row,
+.profile-settings-list {
+  border: 1px solid rgba(100, 116, 139, 0.20);
+  box-shadow: 0 7px 22px rgba(30, 41, 59, 0.045);
+}
+
+/* Customer / identity sections — purple */
+.customer-profile,
+.detail-card {
+  border-color: rgba(124, 58, 237, 0.22);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.055);
+}
+
+.customer-profile::before,
+.detail-card::before {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+/* Loan section — blue */
+.loan-card,
+.loan-summary-grid .summary-box,
+.loan-mini-stats {
+  border: 1px solid rgba(59, 130, 246, 0.22);
+}
+
+.loan-card:hover {
+  border-color: rgba(59, 130, 246, 0.42);
+  box-shadow: 0 10px 28px rgba(59, 130, 246, 0.09);
+}
+
+/* Interest section — warm amber */
+.interest-summary-card,
+.month-interest-list,
+.month-interest-row,
+.interest-adjustment,
+.interest-paid-till {
+  border: 1px solid rgba(217, 119, 6, 0.23);
+}
+
+.interest-summary-card {
+  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.055);
+}
+
+/* Principal / calculation — teal */
+.principal-calculation,
+.calculation-row,
+.calculation-row.final {
+  border-color: rgba(15, 159, 154, 0.22);
+}
+
+/* Transactions / ledger — slate-blue */
+.transaction-section,
+.transaction-row,
+.transaction-columns,
+.transaction-section-title {
+  border-color: rgba(71, 85, 105, 0.20);
+}
+
+.transaction-section {
+  box-shadow: 0 8px 24px rgba(71, 85, 105, 0.055);
+}
+
+/* Payment-related areas — green */
+.payment-total,
+.payment-btn,
+.amount-received {
+  border-color: rgba(22, 163, 74, 0.24);
+}
+
+/* Notes / information — blue-grey */
+.note-box,
+.statement-note {
+  border-color: rgba(14, 116, 144, 0.20);
+}
+
+/* Statement — professional indigo */
+.statement-paper,
+.statement-section,
+.statement-loan-card,
+.statement-transactions-block {
+  border-color: rgba(79, 70, 229, 0.20);
+}
+
+.statement-paper {
+  box-shadow: 0 12px 32px rgba(79, 70, 229, 0.07);
+}
+
+/* Profile — purple */
+.profile-section-card,
+.profile-setting-row,
+.profile-settings-list {
+  border-color: rgba(124, 58, 237, 0.20);
+}
+
+.profile-section-card:hover {
+  border-color: rgba(124, 58, 237, 0.34);
+  box-shadow: 0 10px 28px rgba(124, 58, 237, 0.075);
+}
+
+/* Forms — subtle purple outline */
+.input-group input,
+.input-group select,
+.input-group textarea,
+.profile-form input,
+.profile-form textarea,
+.profile-form select {
+  border: 1px solid rgba(100, 116, 139, 0.24);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus,
+.profile-form input:focus,
+.profile-form textarea:focus,
+.profile-form select:focus {
+  border-color: rgba(124, 58, 237, 0.55);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.08);
+  outline: none;
+}
+
+/* Search — blue-purple */
+.search-box {
+  border-color: rgba(79, 70, 229, 0.20);
+}
+
+/* Deleted page — rose/red, but still subtle */
+.deleted-page-hero,
+.deleted-item-main,
+.deleted-empty-card {
+  border: 1px solid rgba(225, 29, 72, 0.18);
+}
+
+.deleted-item-main:hover {
+  border-color: rgba(225, 29, 72, 0.32);
+  box-shadow: 0 10px 28px rgba(225, 29, 72, 0.07);
+}
+
+/* Empty state — neutral blue */
+.empty-state,
+.empty-small {
+  border: 1px solid rgba(100, 116, 139, 0.18);
+}
+
+/* Dark mode: keep borders visible but soft */
+body.dark-theme .detail-card,
+body.dark-theme .customer-profile,
+body.dark-theme .loan-card,
+body.dark-theme .interest-summary-card,
+body.dark-theme .transaction-section,
+body.dark-theme .principal-calculation,
+body.dark-theme .note-box,
+body.dark-theme .month-interest-list,
+body.dark-theme .statement-section,
+body.dark-theme .statement-loan-card,
+body.dark-theme .statement-transactions-block,
+body.dark-theme .profile-section-card,
+body.dark-theme .profile-setting-row,
+body.dark-theme .profile-settings-list,
+body.dark-theme .deleted-item-main,
+body.dark-theme .deleted-empty-card {
+  background: linear-gradient(145deg, #171b30, #13172a);
+}
+
+body.dark-theme .customer-profile,
+body.dark-theme .detail-card,
+body.dark-theme .profile-section-card {
+  border-color: rgba(139, 92, 246, 0.30);
+}
+
+body.dark-theme .loan-card {
+  border-color: rgba(96, 165, 250, 0.28);
+}
+
+body.dark-theme .interest-summary-card,
+body.dark-theme .month-interest-list,
+body.dark-theme .month-interest-row {
+  border-color: rgba(245, 158, 11, 0.28);
+}
+
+body.dark-theme .transaction-section,
+body.dark-theme .transaction-row {
+  border-color: rgba(148, 163, 184, 0.22);
+}
+
+body.dark-theme .principal-calculation {
+  border-color: rgba(45, 212, 191, 0.25);
+}
+
+/* Keep print/PDF clean */
+@media print {
+  .customer-profile,
+  .loan-card,
+  .interest-summary-card,
+  .transaction-section,
+  .statement-paper,
+  .statement-section,
+  .statement-loan-card {
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+  }
+}
+
+/* =========================================================
+   FINAL POLISH — remove sharp/square inner borders
+   Keep only the rounded outer section borders.
+   ========================================================= */
+
+/* Month-wise interest: keep the main rounded container,
+   but remove the box-like border around every month row. */
+.month-interest-list {
+  border: 0 !important;
+}
+
+.month-interest-row {
+  border: 0 !important;
+  border-bottom: 1px solid rgba(217, 119, 6, 0.12) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.month-interest-row:last-child {
+  border-bottom: 0 !important;
+}
+
+/* Remove the sharp rectangular outline around the small
+   interest summary/calculation areas. */
+.interest-adjustment,
+.interest-paid-till,
+.calculation-row,
+.calculation-row.final,
+.transaction-row,
+.transaction-columns,
+.transaction-section-title {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* These inner areas should feel like clean content blocks,
+   not separate square boxes. */
+.interest-summary-card .interest-adjustment,
+.interest-summary-card .interest-paid-till {
+  border-radius: 16px !important;
+}
+
+/* Keep only subtle separators where they help readability. */
+.transaction-row + .transaction-row {
+  border-top: 1px solid rgba(71, 85, 105, 0.10) !important;
+}
+
+/* Preserve rounded outer cards/sections. */
+.detail-card,
+.customer-profile,
+.loan-card,
+.interest-summary-card,
+.transaction-section,
+.principal-calculation,
+.note-box,
+.statement-paper,
+.statement-section,
+.statement-loan-card,
+.statement-transactions-block,
+.profile-section-card,
+.profile-setting-row,
+.profile-settings-list,
+.deleted-page-hero,
+.deleted-item-main,
+.deleted-empty-card,
+.empty-state,
+.empty-small {
+  border-radius: 20px !important;
+}
+
+/* Soft, professional hover — no harsh outlines. */
+.loan-card:hover,
+.customer-profile:hover,
+.detail-card:hover,
+.profile-section-card:hover,
+.deleted-item-main:hover {
+  transform: translateY(-1px);
+}
+
+/* Dark mode inner separators remain very subtle. */
+body.dark-theme .month-interest-row {
+  border-bottom-color: rgba(148, 163, 184, 0.10) !important;
+}
+
+body.dark-theme .transaction-row + .transaction-row {
+  border-top-color: rgba(148, 163, 184, 0.10) !important;
+}
+
+/* =========================================================
+   FINAL FIX — REMOVE INNER SQUARE BORDER FROM LOAN CARD
+   Keep the rounded outer loan card border only.
+   ========================================================= */
+.loan-card .loan-summary-grid,
+.loan-card .loan-mini-stats,
+.loan-card .summary-box,
+.loan-summary-grid,
+.loan-summary-grid .summary-box {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Keep the three values clean and separated without a box */
+.loan-summary-grid {
+  border-radius: 0 !important;
+}
+
+.loan-summary-grid .summary-box {
+  border-radius: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Outer loan card stays rounded and bordered */
+.loan-card {
+  border: 1px solid rgba(59, 130, 246, 0.22) !important;
+  border-radius: 24px !important;
+}
+
+/* Dark mode */
+body.dark-theme .loan-card .loan-summary-grid,
+body.dark-theme .loan-card .loan-mini-stats,
+body.dark-theme .loan-card .summary-box,
+body.dark-theme .loan-summary-grid,
+body.dark-theme .loan-summary-grid .summary-box {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* =========================================================
+   FINAL OUTER BORDER FIX
+   Keep the rounded border around the whole Loan card/section.
+   Remove only the inner square border around the mini values.
+   ========================================================= */
+
+/* Whole Loan card: rounded professional outline stays visible */
+.loan-card {
+  border: 1px solid rgba(59, 130, 246, 0.35) !important;
+  border-radius: 24px !important;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.96) !important;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08) !important;
+}
+
+/* Inner Original / Principal Paid / Interest Due area: NO box */
+.loan-card .loan-summary-grid,
+.loan-card .loan-mini-stats,
+.loan-card .summary-box {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Keep the rounded outer borders of other major sections */
+.customer-profile,
+.detail-card,
+.interest-summary-card,
+.transaction-section,
+.principal-calculation,
+.statement-paper,
+.statement-section,
+.profile-section-card,
+.deleted-page-hero {
+  border-radius: 20px !important;
+}
+
+/* Dark mode: same rounded outer Loan border */
+body.dark-theme .loan-card {
+  border: 1px solid rgba(129, 140, 248, 0.42) !important;
+  border-radius: 24px !important;
+  background: rgba(20, 24, 43, 0.96) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18) !important;
+}
+
+body.dark-theme .loan-card .loan-summary-grid,
+body.dark-theme .loan-card .loan-mini-stats,
+body.dark-theme .loan-card .summary-box {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+
+/* =========================================================
+   CUSTOMER SORT CONTROL
+   One compact button with a professional dropdown.
+========================================================= */
+.people-header-actions {
+  position: relative;
+}
+
+.sort-control {
+  position: relative;
+}
+
+.sort-toggle-btn {
+  border: 1px solid rgba(124, 58, 237, 0.22);
+  background: rgba(255, 255, 255, 0.92);
+  color: #6d28d9;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(76, 29, 149, 0.06);
+  transition: all 0.2s ease;
+}
+
+.sort-toggle-btn:hover,
+.sort-toggle-btn:focus-visible {
+  border-color: rgba(124, 58, 237, 0.45);
+  background: #faf7ff;
+  box-shadow: 0 8px 22px rgba(76, 29, 149, 0.10);
+  outline: none;
+}
+
+.sort-menu {
+  position: absolute;
+  top: calc(100% + 9px);
+  right: 0;
+  z-index: 80;
+  width: 255px;
+  padding: 8px;
+  border: 1px solid rgba(124, 58, 237, 0.18);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 18px 42px rgba(30, 27, 75, 0.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.sort-menu-title {
+  padding: 9px 11px 8px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.sort-menu-item {
+  width: 100%;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #172033;
+  padding: 11px 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.sort-menu-item:hover {
+  background: #f6f1ff;
+  color: #6d28d9;
+}
+
+.sort-menu-item.active {
+  background: #f1eaff;
+  border-color: rgba(124, 58, 237, 0.14);
+  color: #6d28d9;
+  font-weight: 700;
+}
+
+.sort-check {
+  color: #16a34a;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+body.dark-theme .sort-toggle-btn {
+  background: #171b30;
+  color: #c4b5fd;
+  border-color: rgba(139, 92, 246, 0.30);
+}
+
+body.dark-theme .sort-toggle-btn:hover,
+body.dark-theme .sort-toggle-btn:focus-visible {
+  background: #1e2340;
+  border-color: rgba(139, 92, 246, 0.52);
+}
+
+body.dark-theme .sort-menu {
+  background: #171b30;
+  border-color: rgba(139, 92, 246, 0.28);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.30);
+}
+
+body.dark-theme .sort-menu-title {
+  color: #94a3b8;
+}
+
+body.dark-theme .sort-menu-item {
+  color: #e5e7eb;
+}
+
+body.dark-theme .sort-menu-item:hover {
+  background: #202542;
+  color: #c4b5fd;
+}
+
+body.dark-theme .sort-menu-item.active {
+  background: #27204a;
+  border-color: rgba(139, 92, 246, 0.25);
+  color: #c4b5fd;
+}
+
+@media (max-width: 760px) {
+  .people-header-actions {
+    flex-wrap: wrap;
+  }
+
+  .sort-menu {
+    right: auto;
+    left: 0;
+  }
+}
+
+/* =========================================================
+   LOAN CARD — DATE GIVEN BESIDE LOAN STATS
+   ========================================================= */
+.loan-mini-stats {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, max-content)) !important;
+  gap: 48px !important;
+  align-items: end;
+}
+
+.loan-mini-stats > div {
+  min-width: 110px;
+}
+
+.loan-date-stat strong {
+  color: #334155 !important;
+  font-size: 16px !important;
+  white-space: nowrap;
+}
+
+body.dark-theme .loan-date-stat strong {
+  color: #cbd5e1 !important;
+}
+
+@media (max-width: 760px) {
+  .loan-mini-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 22px 28px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .loan-mini-stats {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 18px !important;
+  }
+
+  .loan-mini-stats > div {
+    min-width: 0;
+  }
+
+  .loan-date-stat strong {
+    font-size: 14px !important;
+  }
+}
