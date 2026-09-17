@@ -5,7 +5,10 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  sendEmailVerification,
   sendPasswordResetEmail,
+  setPersistence,
+  browserSessionPersistence,
   EmailAuthProvider,
   reauthenticateWithCredential,
   updatePassword,
@@ -32,6 +35,8 @@ import "./App.css";
 ========================================================= */
 
 function App() {
+  const SESSION_MARKER = "lendtrack_session_active";
+
   /* ================= AUTH ================= */
 
   const [isRegister, setIsRegister] = useState(false);
@@ -46,6 +51,10 @@ function App() {
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [sendingVerification, setSendingVerification] = useState(false);
+  const [verificationCooldown, setVerificationCooldown] = useState(0);
+  const [verificationPending, setVerificationPending] = useState(false);
+  const [handlingVerificationLink, setHandlingVerificationLink] = useState(false);
 
   /* ================= FORGOT PASSWORD ================= */
 
@@ -1118,15 +1127,48 @@ function App() {
   ========================================================= */
 
   useEffect(() => {
+    // Keep Firebase login only for the current browser session.
+    // Firebase SESSION persistence is cleared when the tab/window closes.
+    // The session marker below also protects against a stale Auth session
+    // surviving an app/PWA restart.
+    const prepareSession = async () => {
+      try {
+        await setPersistence(
+          auth,
+          browserSessionPersistence
+        );
+
+        if (!sessionStorage.getItem(SESSION_MARKER) && auth.currentUser) {
+          await signOut(auth);
+        }
+      } catch (err) {
+        console.error("Could not set session persistence:", err);
+      }
+    };
+
+    prepareSession();
+
+    // Do not process Firebase verification links inside LendTrack.
+    // Firebase's default /__/auth/action page handles verification on the
+    // device where the email link is opened. The original device stays signed
+    // in and the polling effect below detects emailVerified automatically.
     const unsubscribe =
       onAuthStateChanged(
         auth,
-        (currentUser) => {
-          setUser(
-            currentUser
-          );
+        async (currentUser) => {
+          if (currentUser) {
+            setUser(currentUser);
 
-          if (!currentUser) {
+            if (currentUser.emailVerified) {
+              setVerificationPending(false);
+            } else {
+              // Keep the newly registered user signed in while they verify.
+              // Do not send them back to the login page.
+              setVerificationPending(true);
+            }
+          } else {
+            setUser(null);
+            setVerificationPending(false);
             setPeople([]);
             setSelectedPerson(null);
             setSelectedLoan(null);
@@ -1138,6 +1180,56 @@ function App() {
     return () =>
       unsubscribe();
   }, []);
+
+  // 15-second cooldown between verification email sends.
+  useEffect(() => {
+    if (verificationCooldown <= 0) return;
+
+    const timer = setInterval(() => {
+      setVerificationCooldown((seconds) =>
+        seconds > 0 ? seconds - 1 : 0
+      );
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [verificationCooldown]);
+
+  // While the verification screen is open, keep checking Firebase for the
+  // verification status. The verification link can be opened on another
+  // device (for example, phone) while this original app window stays open.
+  // As soon as Firebase reports emailVerified=true, this window automatically
+  // leaves the verification screen and continues to the normal dashboard.
+  useEffect(() => {
+    if (!user || !verificationPending || user.emailVerified) return;
+
+    let cancelled = false;
+
+    const checkVerification = async () => {
+      try {
+        const currentUser = auth.currentUser;
+        if (!currentUser) return;
+
+        await currentUser.reload();
+
+        if (!cancelled && auth.currentUser?.emailVerified) {
+          setUser(auth.currentUser);
+          setVerificationPending(false);
+          setError("Email verified successfully. Opening your dashboard...");
+        }
+      } catch (err) {
+        console.error("Verification status check failed:", err);
+      }
+    };
+
+    // Check immediately, then every 2 seconds until verification is complete.
+    checkVerification();
+    const timer = setInterval(checkVerification, 2000);
+
+    return () => {
+      cancelled = true;
+      clearInterval(timer);
+    };
+  }, [user, verificationPending]);
 
   useEffect(() => {
     if (user) {
@@ -1221,7 +1313,20 @@ function App() {
     setLoading(true);
 
     try {
+      // Use session-only Firebase auth so closing the window/tab logs the user out.
+      await setPersistence(
+        auth,
+        browserSessionPersistence
+      );
+
       if (isRegister) {
+        if (verificationCooldown > 0) {
+          setError(
+            `Please wait ${verificationCooldown} seconds before sending the verification email again.`
+          );
+          return;
+        }
+
         if (
           password !==
           confirmPassword
@@ -1233,11 +1338,16 @@ function App() {
           return;
         }
 
-        const credential = await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
+        setSendingVerification(true);
+
+        const credential =
+          await createUserWithEmailAndPassword(
+            auth,
+            email.trim(),
+            password
+          );
+
+        sessionStorage.setItem(SESSION_MARKER, "1");
 
         await setDoc(
           doc(db, "users", credential.user.uid),
@@ -1249,20 +1359,97 @@ function App() {
           },
           { merge: true }
         );
-      } else {
+
+        // First-time registration requires email verification.
+        // The app stays signed in for this browser session so that, after
+        // verification, the user can go straight to the dashboard.
+
+        await sendEmailVerification(credential.user);
+
+        setSendingVerification(false);
+        setVerificationPending(true);
+        setVerificationCooldown(15);
+
+        setError(
+          "Verification email sent. Open the email and click Verify Email. After verification, LendTrack will open your dashboard automatically on this device."
+        );
+        return;
+      }
+
+      const credential =
         await signInWithEmailAndPassword(
           auth,
-          email,
+          email.trim(),
           password
         );
+
+      await credential.user.reload();
+
+      if (!credential.user.emailVerified) {
+        await signOut(auth);
+        sessionStorage.removeItem(SESSION_MARKER);
+        setError(
+          "Your email is not verified yet. Please verify your email from your inbox before logging in."
+        );
+        return;
       }
+
+      sessionStorage.setItem(SESSION_MARKER, "1");
     } catch (error) {
+      setSendingVerification(false);
+
       switch (error.code) {
-        case "auth/email-already-in-use":
-          setError(
-            "This email is already registered."
-          );
+        case "auth/email-already-in-use": {
+          // If registration was attempted again with an unverified account,
+          // temporarily sign in with the supplied password and resend the
+          // verification email. Verified accounts stay on the normal login flow.
+          try {
+            const existingCredential =
+              await signInWithEmailAndPassword(
+                auth,
+                email.trim(),
+                password
+              );
+
+            await existingCredential.user.reload();
+
+            if (!existingCredential.user.emailVerified) {
+              sessionStorage.setItem(SESSION_MARKER, "1");
+              setSendingVerification(true);
+
+              await sendEmailVerification(existingCredential.user);
+              setSendingVerification(false);
+              setVerificationPending(true);
+              setVerificationCooldown(15);
+              setError(
+                "A new verification email has been sent. Open it and click Verify Email. After verification, LendTrack will open your dashboard automatically on this device."
+              );
+            } else {
+              await signOut(auth);
+              sessionStorage.removeItem(SESSION_MARKER);
+              setError(
+                "This email is already registered and verified. Please use Login instead."
+              );
+            }
+          } catch (resendError) {
+            setSendingVerification(false);
+
+            if (resendError.code === "auth/invalid-credential") {
+              setError(
+                "This email is already registered, but the password is incorrect. Please use Login or Forgot Password."
+              );
+            } else if (resendError.code === "auth/too-many-requests") {
+              setError(
+                "Too many attempts. Please wait a little before trying again."
+              );
+            } else {
+              setError(
+                "This email is already registered. Please use Login."
+              );
+            }
+          }
           break;
+        }
 
         case "auth/invalid-email":
           setError(
@@ -1301,11 +1488,12 @@ function App() {
           break;
 
         default:
-  setError(
-    `Firebase Error: ${error.code} - ${error.message}`
-  );
+          setError(
+            `Firebase Error: ${error.code} - ${error.message}`
+          );
       }
     } finally {
+      setSendingVerification(false);
       setLoading(false);
     }
   }
@@ -3152,6 +3340,100 @@ function App() {
     highestOutstanding: "Highest Outstanding",
     newest: "Newest Customer",
   };
+
+  /* =========================================================
+     EMAIL VERIFICATION WAITING SCREEN
+  ========================================================= */
+
+  if (user && verificationPending && !user.emailVerified) {
+    return (
+      <div className="auth-page">
+        <div className="auth-card">
+          <div className="logo">📧</div>
+
+          <h1>LendTrack</h1>
+
+          <p className="auth-subtitle">
+            Verify your email to continue
+          </p>
+
+          <div className="error-box" style={{ marginBottom: "18px" }}>
+            {error || `Verification email sent to ${user.email}.`}
+          </div>
+
+          <p style={{ textAlign: "center", color: "#64748b", lineHeight: 1.6 }}>
+            Open the verification email and click <b>Verify Email</b>.
+            <br />
+            After verification, LendTrack will automatically open your dashboard.
+          </p>
+
+          <button
+            type="button"
+            className="primary-btn"
+            disabled={loading || verificationCooldown > 0}
+            onClick={async () => {
+              try {
+                setLoading(true);
+                setError("");
+                await setPersistence(auth, browserSessionPersistence);
+
+                if (!auth.currentUser) {
+                  setError("Your session expired. Please login again.");
+                  return;
+                }
+
+                await auth.currentUser.reload();
+
+                if (auth.currentUser.emailVerified) {
+                  setVerificationPending(false);
+                  setUser(auth.currentUser);
+                  return;
+                }
+
+                await sendEmailVerification(auth.currentUser);
+                setVerificationCooldown(15);
+                setError("A new verification email has been sent. You can resend again after 15 seconds.");
+              } catch (err) {
+                console.error(err);
+                setError("Unable to send verification email. Please try again.");
+              } finally {
+                setLoading(false);
+              }
+            }}
+          >
+            {loading
+              ? "Sending..."
+              : verificationCooldown > 0
+              ? `Resend in ${verificationCooldown}s`
+              : "Resend"}
+          </button>
+
+          <button
+            type="button"
+            onClick={async () => {
+              await signOut(auth);
+              sessionStorage.removeItem(SESSION_MARKER);
+              setVerificationPending(false);
+              setIsRegister(false);
+              setError("");
+            }}
+            style={{
+              width: "100%",
+              marginTop: "12px",
+              border: "none",
+              background: "transparent",
+              color: "#7c3aed",
+              fontWeight: 700,
+              cursor: "pointer",
+              padding: "10px",
+            }}
+          >
+            Back to Login
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   /* =========================================================
      LOGIN SCREEN
